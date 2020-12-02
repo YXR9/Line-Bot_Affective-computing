@@ -1,6 +1,7 @@
 import requests
 import re
 import random
+import os
 import configparser
 from bs4 import BeautifulSoup
 from flask import Flask, request, abort
@@ -27,6 +28,9 @@ app = Flask(__name__)
 channel_secret = os.getenv('ChannelSecret', None)
 channel_access_token = os.getenv('ChannelAccessToken', None)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', None)
+
+line_bot_api = LineBotApi(channel_access_token)
+handler = WebhookHandler(channel_secret)
 
 
 @app.route("/callback", methods=['POST'])
