@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from flask import Flask, request, abort
 from imgurpython import ImgurClient
 
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -45,6 +46,11 @@ def callback():
 
     return 'ok'
 
+@app.route("/sum_test")
+def sum_test():
+    result = sum(10,11)
+    return result
+
 
 def pattern_mega(text):
     patterns = [
@@ -72,6 +78,9 @@ def eyny_movie():
             data = '{}\n{}\n\n'.format(title, link)
             content += data
     return content
+
+def sum(a,b):
+    return (a+b)
 
 
 def apple_news():
