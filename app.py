@@ -4,7 +4,7 @@ import random
 import os
 import configparser
 from bs4 import BeautifulSoup
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
 from imgurpython import ImgurClient
 
 
@@ -49,7 +49,8 @@ def callback():
 @app.route("/sum_test")
 def sum_test():
     result = sum(10,11)
-    return str(result)
+    return render_template("hello.html")
+    #return str(result)
 
 
 def pattern_mega(text):
