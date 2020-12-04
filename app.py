@@ -49,7 +49,7 @@ def callback():
 @app.route("/sum_test")
 def sum_test():
     result = sum(10,11)
-    return render_template("hello.html")
+    return render_template("hello.html", result=result)
     #return str(result)
 
 
