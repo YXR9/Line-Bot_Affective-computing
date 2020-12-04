@@ -49,7 +49,7 @@ def callback():
 @app.route("/sum_test")
 def sum_test():
     result = sum(10,11)
-    return result
+    return str(result)
 
 
 def pattern_mega(text):
