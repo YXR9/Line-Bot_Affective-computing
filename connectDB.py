@@ -4,7 +4,6 @@ import os
 import psycopg2
 import psycopg2.extras
 from datetime import datetime, date, timedelta
-import bcrypt
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
