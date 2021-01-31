@@ -33,5 +33,5 @@ def insert_or_update(query, args=(), one=False):
     return 'insert or update data'
 
 def get_course():
-    datas = query_db('''select * from learning_Material limit 1''')
+    datas = query_db('''select * from "learning_Material" order by "id" limit 1''')
     return datas[0]
