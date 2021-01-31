@@ -14,11 +14,11 @@
 		<![endif]-->
 	</head>
 	<body>
-		<h1 align="center">學習影片-{{ course.courseName }}</h1>
+		<h1 align="center">{{ course.courseName }}</h1>
 		<br>
 		<div class="container">
 			<div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nFPuGm0kihs" frameborder="0" allowfullscreen></iframe>
+				<iframe class="embed-responsive-item" src="{{ course.courseURL }}" frameborder="0" allowfullscreen></iframe>
 			</di>
 		</div>
 		<hr>s
