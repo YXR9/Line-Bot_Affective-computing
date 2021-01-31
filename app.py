@@ -52,6 +52,10 @@ def sum_test():
     return render_template("hello.html", result=result)
     #return str(result)
 
+@app.route("/video")
+def video():
+    return render_template("video.html")
+
 
 def pattern_mega(text):
     patterns = [
@@ -314,14 +318,14 @@ def oil_price():
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
-    content = event.message.text
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
-    # if event.message.text == "蘋果即時新聞":
-    #     content = apple_news()
-    #     line_bot_api.reply_message(
-    #         event.reply_token,
-    #         TextSendMessage(text=content))
-    #     return 0
+    #content = event.message.text
+    #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
+    if event.message.text == "學習課程":
+        
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
     #     content = ptt_beauty()
     #     line_bot_api.reply_message(
