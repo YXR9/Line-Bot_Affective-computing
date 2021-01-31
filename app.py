@@ -16,6 +16,8 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
+from connectDB import get_course
+
 app = Flask(__name__)
 # config = configparser.ConfigParser()
 
@@ -54,7 +56,8 @@ def sum_test():
 
 @app.route("/video")
 def video():
-    return render_template("video.html")
+    course = get_course()
+    return render_template("video.html", courser=courser)
 
 
 def pattern_mega(text):
