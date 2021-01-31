@@ -57,7 +57,7 @@ def sum_test():
 @app.route("/video")
 def video():
     course = get_course()
-    return render_template("video.html", courser=courser)
+    return render_template("video.html", course=course)
 
 
 def pattern_mega(text):
