@@ -3,10 +3,10 @@ const video = document.getElementById('video')
 var tempemotion = 'non';
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/models')
+  faceapi.nets.tinyFaceDetector.loadFromUri('/modelss'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('/modelss'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/modelss'),
+  faceapi.nets.faceExpressionNet.loadFromUri('/modelss')
 ]).then(startVideo)
 
 function startVideo() {
