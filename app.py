@@ -61,7 +61,8 @@ def video():
 
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    course = get_course()
+    return render_template("index.html", course=course)
 
 
 def pattern_mega(text):

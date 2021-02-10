@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Emotion Detection</title>
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <script defer src="{{ url_for('static', filename = 'js/face-api.min.js') }}"></script>
   <script defer src="{{ url_for('static', filename = 'js/script.js') }}"></script>
   <!--<iframe src="http://www.upro.idv.tw/flippedse/index.php" width="100%" height="100%" frameborder="1"></iframe>-->
@@ -25,6 +27,13 @@
   </style>
 </head>
 <body>
+    <h1 align="center">{{ course.courseName }}</h1>
+    <br>
+		<div class="container">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="{{ course.courseURL }}" frameborder="0" allowfullscreen></iframe>
+			</di>
+		</div>
     <div class="container">
       <video id="video" width="720" height="560" autoplay muted style="visibility: hidden;"></video>
     </div>
