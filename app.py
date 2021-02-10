@@ -154,12 +154,12 @@ def oil_price():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
+    print(userID)
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
     #content = event.message.text
     #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
     if event.message.text == "學習課程":
-        
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
