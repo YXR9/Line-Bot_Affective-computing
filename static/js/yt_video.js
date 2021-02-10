@@ -20,7 +20,7 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-// var myVar = setInterval(get_time, 5000);
+var myVar = setInterval(get_time, 5000);
 
 function get_time() {
     var time = player.getCurrentTime();
