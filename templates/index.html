@@ -19,7 +19,13 @@
     <br>
 		<div class="container">
 			<div class="embed-responsive embed-responsive-16by9">
-				<iframe id="course_video" class="embed-responsive-item" src="{{ course.courseURL }}" frameborder="0" allowfullscreen></iframe>
+        <!-- <iframe id="course_video" class="embed-responsive-item" src="{{ course.courseURL }}" frameborder="0" allowfullscreen></iframe> -->
+        <iframe id="course_video"
+        width="640" height="360"
+        src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
+        frameborder="0"
+        style="border: solid 4px #37474F"
+      </iframe>
 			</di>
 		</div>
     <div class="container">
@@ -29,7 +35,7 @@
 </body>
 </html>
 
-<script>
+<script type="text/javascript">
   var tag = document.createElement('script');
   tag.id = 'iframe-demo';
   tag.src = 'https://www.youtube.com/iframe_api';
@@ -40,7 +46,7 @@
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('course_video');
   }
-  
+
   var myVar = setInterval(get_time, 5000);
 
   function get_time() {
