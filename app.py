@@ -64,10 +64,9 @@ def index():
     course = get_course()
     return render_template("index.html", course=course)
 
-@app.route("/update_study_emotion", methods=['POST'])
-def update_study_emotion():
+# @app.route("/update_study_emotion", methods=['POST'])
+# def update_study_emotion():
     
-
 def apple_news():
     target_url = 'https://tw.appledaily.com/new/realtime'
     print('Start parsing appleNews....')
