@@ -154,7 +154,8 @@ def oil_price():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
-    print(userID)
+    print(event)
+    print("event.userID:", userID)
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
     #content = event.message.text
