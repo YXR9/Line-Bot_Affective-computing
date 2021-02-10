@@ -9,7 +9,6 @@
   <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
   <script defer src="{{ url_for('static', filename = 'js/face-api.min.js') }}"></script>
   <script defer src="{{ url_for('static', filename = 'js/script.js') }}"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
   <!--<iframe src="http://www.upro.idv.tw/flippedse/index.php" width="100%" height="100%" frameborder="1"></iframe>-->
   <style>
 
@@ -31,6 +30,12 @@
 </html>
 
 <script>
+  var tag = document.createElement('script');
+  tag.id = 'iframe-demo';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
   var player = new YT.Player('course_video');
   var myVar = setInterval(get_time, 5000);
 
