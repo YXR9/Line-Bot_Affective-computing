@@ -4,9 +4,20 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+// var player;
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('course_video');
+// }
 var player;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('course_video');
+  player = new YT.Player('course_video', {
+    height: '390',
+    width: '640',
+    videoId: 'nFPuGm0kihs',
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
 }
 
 var myVar = setInterval(get_time, 5000);
