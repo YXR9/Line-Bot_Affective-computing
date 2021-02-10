@@ -19,7 +19,7 @@ function startVideo() {
 }
 
 video.addEventListener('play', () => {
-
+  console.log("Start detecting...");
   // const canvas = faceapi.createCanvasFromMedia(video)
   // document.body.append(canvas)
 
@@ -52,4 +52,20 @@ video.addEventListener('play', () => {
 
   }, 1000);
 });
+
+// 利用ajax去更新
+
+function update_study_emotion(uID, emotion) {
+  $.ajax({
+    type: 'POST',
+    url:".././update_study_emotion",
+    data:"userID="+ {{ uID }} +"&emotion="+ emotion,
+    timeout: 360 * 1000,
+    success: function(data) {
+        console.log(data);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+    }
+});
+}
 
