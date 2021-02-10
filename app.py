@@ -139,25 +139,13 @@ def panx():
     return content
 
 
-def oil_price():
-    target_url = 'https://gas.goodlife.tw/'
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    title = soup.select('#main')[0].text.replace('\n', '').split('(')[0]
-    gas_price = soup.select('#gas-price')[0].text.replace('\n\n\n', '').replace(' ', '')
-    cpc = soup.select('#cpc')[0].text.replace(' ', '')
-    content = '{}\n{}{}'.format(title, gas_price, cpc)
-    return content
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
     print(event)
     print("event.userID:", userID)
     print("event.reply_token:", event.reply_token)
-    print("event.message.text:", event.message.text)
+    print("event.message.texttt:", event.message.text)
     #content = event.message.text
     #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
     if event.message.text == "學習課程":
