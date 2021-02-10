@@ -15,14 +15,15 @@ function onYouTubeIframeAPIReady() {
     width: '640',
     videoId: 'nFPuGm0kihs',
     events: {
-      'onReady': get_time
+      'onReady': get_video_time
     }
   });
 }
 
-var myVar = setInterval(get_time, 5000);
+// var myVar = setInterval(get_video_time, 5000);
 
-function get_time() {
+function get_video_time() {
     var time = player.getCurrentTime();
+    return time.toFixed(1);
     console.log(time.toFixed(1));
 }

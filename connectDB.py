@@ -36,6 +36,7 @@ def get_course():
     datas = query_db('''select * from "learning_Material" order by "id" limit 1''')
     return datas[0]
 
-def update_emotion(m_id, u_id, video_time, study_emotion):
+def update_emotion(m_id, u_id, video_time, study_emotions):
     insert_or_update('''insert into "user" ("m_id", "u_id", "video_time", "study_emotion")
-        values (%s, %s, %s, %s)''', [profile.user_id, profile.display_name, datetime.strftime(datetime.now(), "%Y/%m/%d %H:%M")])
+        values (%s, %s, %s, %s)''', [m_id, u_id, video_time, study_emotions)])
+    return 'OK'

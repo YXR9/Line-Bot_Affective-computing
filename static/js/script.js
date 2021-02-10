@@ -42,7 +42,8 @@ video.addEventListener('play', () => {
       
         tempemotion = OutputToString;
         console.log(OutputToString);  //OutputToString為紀錄的情緒，情緒有改變才會更換成下一個情緒狀態
-
+        v_time = get_video_time()
+        update_study_emotion({{ course.id }}, userID, v_time, OutputToString);
       } 
       
     } 
@@ -55,17 +56,17 @@ video.addEventListener('play', () => {
 
 // 利用ajax去更新
 
-function update_study_emotion(uID, emotion) {
-  //   $.ajax({
-  //     type: 'POST',
-  //     url:".././update_study_emotion",
-  //     data:"userID="+ {{ uID }} +"&emotion="+ emotion,
-  //     timeout: 360 * 1000,
-  //     success: function(data) {
-  //         console.log(data);
-  //     },
-  //     error: function(jqXHR, textStatus, errorThrown) {
-  //     }
-  // });
+function update_study_emotion(m_id, uID, video_time, emotion) {
+  $.ajax({
+    type: 'POST',
+    url:".././update_study_emotion",
+    data:"m_id=" + m_id + "&userID="+ u_ID + "&video_time=" + video_time + "&study_emotion="+ emotion,
+    timeout: 360 * 1000,
+    success: function(data) {
+        console.log(data);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+    }
+  });
 }
 
