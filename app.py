@@ -64,20 +64,6 @@ def index():
     course = get_course()
     return render_template("index.html", course=course)
 
-
-def pattern_mega(text):
-    patterns = [
-        'mega', 'mg', 'mu', 'ＭＥＧＡ', 'ＭＥ', 'ＭＵ',
-        'ｍｅ', 'ｍｕ', 'ｍｅｇａ', 'GD', 'MG', 'google',
-    ]
-    for pattern in patterns:
-        if re.search(pattern, text, re.IGNORECASE):
-            return True
-
-def sum(a,b):
-    return (a+b)
-
-
 def apple_news():
     target_url = 'https://tw.appledaily.com/new/realtime'
     print('Start parsing appleNews....')
@@ -91,14 +77,6 @@ def apple_news():
         link = data['href']
         content += '{}\n\n'.format(link)
     return content
-
-
-def get_page_number(content):
-    start_index = content.find('index')
-    end_index = content.find('.html')
-    page_number = content[start_index + 5: end_index]
-    return int(page_number) + 1
-
 
 def craw_page(res, push_rate):
     soup_ = BeautifulSoup(res.text, 'html.parser')
