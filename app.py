@@ -24,8 +24,6 @@ app = Flask(__name__)
 
 channel_secret = os.getenv('ChannelSecret', None)
 channel_access_token = os.getenv('ChannelAccessToken', None)
-print(channel_access_token)
-print(channel_secret)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', None)
 
 line_bot_api = LineBotApi(channel_access_token)
