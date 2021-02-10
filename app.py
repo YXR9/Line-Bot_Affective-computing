@@ -153,6 +153,7 @@ def oil_price():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    userID = event.source.user_id 
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
     #content = event.message.text
@@ -163,6 +164,8 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content))
         return 0
+    elif event.message.text = "id":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
     #     content = ptt_beauty()
     #     line_bot_api.reply_message(
