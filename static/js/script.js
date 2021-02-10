@@ -56,16 +56,16 @@ video.addEventListener('play', () => {
 // 利用ajax去更新
 
 function update_study_emotion(uID, emotion) {
-  $.ajax({
-    type: 'POST',
-    url:".././update_study_emotion",
-    data:"userID="+ {{ uID }} +"&emotion="+ emotion,
-    timeout: 360 * 1000,
-    success: function(data) {
-        console.log(data);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-    }
-});
+  //   $.ajax({
+  //     type: 'POST',
+  //     url:".././update_study_emotion",
+  //     data:"userID="+ {{ uID }} +"&emotion="+ emotion,
+  //     timeout: 360 * 1000,
+  //     success: function(data) {
+  //         console.log(data);
+  //     },
+  //     error: function(jqXHR, textStatus, errorThrown) {
+  //     }
+  // });
 }
 
