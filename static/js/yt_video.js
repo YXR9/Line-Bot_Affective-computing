@@ -24,5 +24,5 @@ var myVar = setInterval(get_time, 5000);
 
 function get_time() {
     var time = player.getCurrentTime();
-    console.log(time);s
+    console.log(time);
 }
