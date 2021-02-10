@@ -37,16 +37,20 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    # print("body:",body)
     app.logger.info("Request body: " + body)
 
-    # handle webhook body
+    # parse webhook body
     try:
         handler.handle(body, signature)
+    except LineBotApiError as e:
+        print("Got exception from LINE Messaging API: %s\n" % e.message)
+        for m in e.error.details:
+            print("  %s: %s" % (m.property, m.message))
+        print("\n")
     except InvalidSignatureError:
         abort(400)
 
-    return 'ok'
+    return 'OK'
 
 @app.route("/video")
 def video():
@@ -113,20 +117,6 @@ def technews():
     for index, data in enumerate(soup.select('article div h1.entry-title a')):
         if index == 12:
             return content
-        title = data.text
-        link = data['href']
-        content += '{}\n{}\n\n'.format(title, link)
-    return content
-
-
-def panx():
-    target_url = 'https://panx.asia/'
-    print('Start parsing ptt hot....')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for data in soup.select('div.container div.row div.desc_wrap h2 a'):
         title = data.text
         link = data['href']
         content += '{}\n{}\n\n'.format(title, link)
