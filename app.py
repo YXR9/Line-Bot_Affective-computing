@@ -71,8 +71,8 @@ def update_study_emotion():
     emotion = request.form['study_emotion']
     result = 'OK'
     #result = update_emotion(m_id, userID, video_time, emotion)
-    if emotion == "sad":
-        line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
+    # if emotion == "sad":
+    #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
 def ptt_hot():

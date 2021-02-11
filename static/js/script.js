@@ -44,11 +44,7 @@ video.addEventListener('play', () => {
         console.log(OutputToString);  //OutputToString為紀錄的情緒，情緒有改變才會更換成下一個情緒狀態
         v_time = get_video_time();
         update_study_emotion(m_id, userID, v_time, OutputToString);
-        if(OutputToString == "sad"){
-          console.log("noooo~~");
-        }else{
-          console.log("k k k k");
-        }
+        
       } 
       
     } 
@@ -56,12 +52,17 @@ video.addEventListener('play', () => {
     // canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     // faceapi.draw.drawDetections(canvas, resizedDetections);
 
-  }, 3000);
+  }, 5000);
 });
 
 // 利用ajax去更新
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
+  if(emoiton == "sad"){
+    console.log("ssaasddd");
+  }else{
+    console.log("noooo~");
+  }
   $.ajax({
     type: 'POST',
     url:".././update_study_emotion",
