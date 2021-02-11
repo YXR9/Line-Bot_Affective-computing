@@ -89,10 +89,12 @@ def send_course_keyword(reply_token):
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
                 "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"},)
+            print(add_json[0])
         else:
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
                 "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
+            print(add_json[0])
         text = f.read().format(add_json[0])
     true = True
     content = eval(text)
