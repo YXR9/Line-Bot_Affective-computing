@@ -83,6 +83,7 @@ def update_study_emotion():
 
 def send_course_keyword(reply_token):
     f = open('./static/course_keyword.json', 'r', encoding='utf8')
+    neww = ''
     for i in range(2):
         add_json = []
         new = ''
@@ -98,7 +99,9 @@ def send_course_keyword(reply_token):
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
             new = str(add_json)
             print(add_json[0])
-        text = f.read().format(new)
+        neww = neww + new
+    print("neww is ", neww)
+    text = f.read().format(neww)
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
