@@ -1,0 +1,109 @@
+{{
+    "type": "bubble",
+    "size": "kilo",
+    "header": {{
+      "type": "box",
+      "layout": "horizontal",
+      "backgroundColor": "#00bce4",
+      "contents": [
+        {{
+          "type": "text",
+          "text": "課程名稱",
+          "weight": "bold",
+          "size": "lg",
+          "gravity": "center",
+          "align": "center",
+          "color": "#FFFFFF"
+        }}
+      ]
+    }},
+    "body": {{
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {{
+          "type": "text",
+          "contents": [
+            {{
+              "type": "span",
+              "text": "請點選不太熟悉的關鍵字",
+              "size": "sm"
+            }}
+          ],
+          "align": "center",
+          "margin": "none",
+          "offsetBottom": "sm"
+        }},
+        {{
+          "type": "separator"
+        }},
+        {{
+          "margin": "md",
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "keyword",
+                "data": "keyword_id"
+              }},
+              "color": "#FFFFFF",
+              "style": "link"
+            }}
+          ],
+          "borderWidth": "light",
+          "borderColor": "#01BCE4",
+          "justifyContent": "center",
+          "background": {{
+            "type": "linearGradient",
+            "angle": "0deg",
+            "startColor": "#01BCE4",
+            "endColor": "#01BCE4"
+          }},
+          "cornerRadius": "sm"
+        }},
+        {{
+          "margin": "md",
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "keyword",
+                "data": "keyword_id"
+              }},
+              "color": "#FFFFFF",
+              "style": "link"
+            }}
+          ],
+          "background": {{
+            "type": "linearGradient",
+            "angle": "0deg",
+            "startColor": "#01BCE4",
+            "endColor": "#01BCE4"
+          }},
+          "cornerRadius": "sm"
+        }{},
+      ]
+    }},
+    "footer": {{
+      "type": "box",
+      "layout": "vertical",
+      "contents": []
+    }},
+    "styles": {{
+      "header": {{
+        "backgroundColor": "#6486E3"
+      }},
+      "body": {{
+        "backgroundColor": "#FEFEFE"
+      }},
+      "footer": {{
+        "separator": true
+      }}
+    }}
+  }}

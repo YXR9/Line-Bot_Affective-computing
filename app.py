@@ -81,6 +81,16 @@ def update_study_emotion():
     #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
+def send_course_keyword(reply_message):
+    f = open('./static/course_keyword.json', 'r', encoding='utf8')
+    add_json = []
+    add_json.append({"margin": "md", "type": "box", "layout": "horizontal", "contents": [{"type": "button", "action": {"type": "postback","label": "keyword","data": "keyword_id"
+        },"color": "#FFFFFF","style": "link"}],"borderWidth": "light","borderColor": "#01BCE4","justifyContent": "center","background": {"type": "linearGradient","angle": "0deg",
+        "startColor": "#01BCE4","endColor": "#01BCE4"},"cornerRadius": "sm"})
+    text = f.read().format(add_note[0])
+    content = eval(text)
+    line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
@@ -101,6 +111,8 @@ def handle_message(event):
         #     TextSendMessage(text=content))
     elif event.message.text == "id":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
+    elif event.message.text == "keyword":
+        send_course_keyword(event.reply_token)
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
     #     content = ptt_beauty()
     #     line_bot_api.reply_message(
