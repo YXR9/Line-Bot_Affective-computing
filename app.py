@@ -100,7 +100,7 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.texttt:", event.message.text)
     if event.message.text == "學習課程":
-        f = open('ta/static/course_menu.json', 'r', encoding='utf8')
+        f = open('/static/course_menu.json', 'r', encoding='utf8')
         uri = course_uri + "?userID=" + userID
         text = f.read().format(uri,uri)
 
