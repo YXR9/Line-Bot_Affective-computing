@@ -86,7 +86,7 @@ def send_course_keyword(reply_token):
     for i in range(2):
         add_json = []
         new = ''
-        if i == 1:
+        if i == 0:
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
                 "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
