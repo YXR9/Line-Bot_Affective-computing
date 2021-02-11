@@ -37,11 +37,6 @@ video.addEventListener('play', () => {
       var Emotion = Datalist.expressions;
       var Outputemotion = Object.entries(Emotion).sort((a,b) => b[1]-a[1]).map(el=>el[0]).slice(0,1);
       var OutputToString = Outputemotion.toString();
-      if(OutputToString == "sad"){
-        console.log("hihi");
-      }else{
-        console.log(typeof(OutputToString));
-      }
       if(OutputToString != tempemotion) {
       
         tempemotion = OutputToString;
@@ -62,7 +57,8 @@ video.addEventListener('play', () => {
 // 利用ajax去更新
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
-  if(emoiton == "sad"){
+  if(emotion == "sad"){
+    stopVideo();
     console.log("ssaasddd");
   }else{
     console.log("noooo~");
