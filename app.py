@@ -81,7 +81,7 @@ def update_study_emotion():
     #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
-def send_course_keyword(reply_message):
+def send_course_keyword(reply_token):
     f = open('./static/course_keyword.json', 'r', encoding='utf8')
     add_json = []
     add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
