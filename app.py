@@ -88,6 +88,7 @@ def send_course_keyword(reply_message):
         },"color": "#FFFFFF","style": "link"}],"borderWidth": "light","borderColor": "#01BCE4","justifyContent": "center","background": {"type": "linearGradient","angle": "0deg",
         "startColor": "#01BCE4","endColor": "#01BCE4"},"cornerRadius": "sm"})
     text = f.read().format(add_note[0])
+    true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
 
