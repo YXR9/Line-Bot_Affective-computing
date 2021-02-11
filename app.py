@@ -70,6 +70,8 @@ def update_study_emotion():
     video_time = request.form['video_time']
     emotion = request.form['study_emotion']
     result = update_emotion(m_id, userID, video_time, emotion)
+    if emotion == "sad":
+        line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
 def ptt_hot():
