@@ -8,12 +8,6 @@
   <title>Emotion Detection</title>
   <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    const userID = {{ userID }};
-    const m_id = {{ course.id }};
-    console.log(userID);
-    console.log(m_id);
-  </script>
   <script defer src="{{ url_for('static', filename = 'js/yt_video.js') }}"></script>
   <script defer src="{{ url_for('static', filename = 'js/face-api.min.js') }}"></script>
   <script defer src="{{ url_for('static', filename = 'js/script.js') }}"></script>
@@ -37,5 +31,8 @@
 </body>
 </html>
 <script>
-  
+  $(document).ready(function() {
+       userID = {{ userID }};
+       console.log(userID);
+  });
 </script>
