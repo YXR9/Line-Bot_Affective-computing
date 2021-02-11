@@ -95,7 +95,7 @@ def send_course_keyword(reply_token, m_id):
             new_add = str(add_json[0]) + ","
             print(new_add)
         else:
-            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"],
+            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"]),
                 "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
             new_add = str(add_json[0])
