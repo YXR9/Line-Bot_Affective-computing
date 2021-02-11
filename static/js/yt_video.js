@@ -12,7 +12,7 @@ var player;
 
 function onYouTubeIframeAPIReady() {
     console.log("URL is ");
-    console.log("{{ course.courseURL }}");
+    console.log('{{ course.courseURL }}');
   player = new YT.Player('course_video', {
     height: '390',
     width: '640',
