@@ -52,3 +52,7 @@ def update_emotion(m_id, u_id, video_time, study_emotions):
 def get_keyword(m_id):
     datas = query_db('''select * from "learning_material_keyword" where "m_id"=%s''',[m_id])
     return datas
+
+def get_keyword_description(id)
+    datas = query_db('''select * from "learning_material_keyword" where "id"=%s''',[id])
+    return datas[0]
