@@ -62,6 +62,7 @@ def video():
 @app.route("/index")
 def index():
     userID = request.args.get('userID')
+    m_id = request.args.get('m_id')
     course = get_course()
     return render_template("index.html", course=course, userID=userID)
 
@@ -86,8 +87,8 @@ def handle_message(event):
     print("event.message.texttt:", event.message.text)
     if event.message.text == "學習課程":
         f = open('./static/course_menu.json', 'r', encoding='utf8')
-        uri = course_uri + "?userID=" + userID
-        text = f.read().format(uri,uri)
+        uri = course_uri + "?userID=" + userID + "&m_id="
+        text = f.read().format(uri + "1",uri + "2")
 
         true = True
         content = eval(text)
