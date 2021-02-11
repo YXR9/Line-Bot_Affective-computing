@@ -63,8 +63,11 @@ def video():
 def index():
     userID = request.args.get('userID')
     m_id = request.args.get('m_id')
-    course = get_course()
-    return render_template("index.html", course=course, userID=userID)
+    course = get_course(m_id)
+    if course != "None":
+        return render_template("index.html", course=course, userID=userID)
+    else:
+        return "課程不存在"
 
 @app.route("/update_study_emotion", methods=['POST'])
 def update_study_emotion():
