@@ -37,11 +37,7 @@
         {{
           "type": "separator"
         }},
-        {{
-          "margin": "md",
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [{}
+        {}
       ]
     }},
     "footer": {{
