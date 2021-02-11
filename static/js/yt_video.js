@@ -13,7 +13,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('course_video', {
     height: '390',
     width: '640',
-    videoId: '{{ course.courseURL }}',
+    videoId: 'B9AbGABeq7o',
     events: {
       'onReady': get_video_time
     }
