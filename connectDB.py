@@ -37,6 +37,6 @@ def get_course():
     return datas[0]
 
 def update_emotion(m_id, u_id, video_time, study_emotions):
-    insert_or_update('''insert into "user" ("m_id", "u_id", "video_time", "study_emotion")
+    insert_or_update('''insert into "learning_emotion" ("m_id", "u_id", "video_time", "study_emotion")
         values (%s, %s, %s, %s)''', [m_id, u_id, video_time, study_emotions])
     return 'OK'
