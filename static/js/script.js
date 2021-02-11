@@ -42,7 +42,7 @@ video.addEventListener('play', () => {
       
         tempemotion = OutputToString;
         console.log(OutputToString);  //OutputToString為紀錄的情緒，情緒有改變才會更換成下一個情緒狀態
-        v_time = get_video_time()
+        v_time = get_video_time();
         update_study_emotion(m_id, userID, v_time, OutputToString);
       } 
       
