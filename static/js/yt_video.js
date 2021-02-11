@@ -28,6 +28,10 @@ function get_video_time() {
     console.log(time.toFixed(1));
 }
 
+function pauseVideo(){
+    player.pauseVideo();
+}
+
 function stopVideo() {
     player.stopVideo();
 }

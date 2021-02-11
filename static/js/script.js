@@ -58,7 +58,7 @@ video.addEventListener('play', () => {
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
   if(emotion == "sad"){
-    stopVideo();
+    pauseVideo();
     console.log("ssaasddd");
   }else{
     console.log("noooo~");
