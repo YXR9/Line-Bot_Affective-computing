@@ -55,4 +55,4 @@ def get_keyword(m_id):
 
 def get_keyword_description(id):
     datas = query_db('''select * from "learning_material_keyword" where "id"=%s''',[id])
-    return datas[0]
+    return datas[0]["description"]
