@@ -108,7 +108,7 @@ def send_course_keyword(reply_token, m_id):
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
 
 def send_notification(m_id,userID):
-    f = open('./static/restaurant_open_time.json', 'r', encoding='utf8')
+    f = open('./static/check_understand.json', 'r', encoding='utf8')
     text = f.read().format(m_id, m_id)
     true = True
     content = eval(text)
