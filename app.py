@@ -134,11 +134,10 @@ def handle_postback(event):
     text = event.postback.data
     if text[0:11] == 'keyword_id_':
         keyword_id = text[11:]
-        description = get_keyword_description(keyword_id)
+        keyword_result = get_keyword_description(keyword_id)
+        text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
         line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text=description))
-
-
+                event.reply_token, TextSendMessage(text=text))
 
 
 @handler.add(MessageEvent, message=StickerMessage)
