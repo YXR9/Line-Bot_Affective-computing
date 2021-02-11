@@ -34,14 +34,15 @@ def insert_or_update(query, args=(), one=False):
 
 def get_course(m_id):
     try:
-        datas = query_db('''select * from "learning_Material" where "id"=%s''',[m_id])
+        m_id = int(m_id)
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")
+        return "None"
+    datas = query_db('''select * from "learning_Material" where "id"=%s''',[m_id])
         if datas:
             return datas[0]
         else:
             return "None"
-    except ValueError:
-        print("Oops!  That was no valid number.  Try again...")
-        return "None"
     
 def update_emotion(m_id, u_id, video_time, study_emotions):
     insert_or_update('''insert into "learning_emotion" ("m_id", "u_id", "video_time", "study_emotion")
