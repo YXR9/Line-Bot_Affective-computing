@@ -27,3 +27,7 @@ function get_video_time() {
     return time.toFixed(1);
     console.log(time.toFixed(1));
 }
+
+function stopVideo() {
+    player.stopVideo();
+}
