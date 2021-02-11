@@ -9,18 +9,21 @@
 //     player = new YT.Player('course_video');
 // }
 var player;
-function onYouTubeIframeAPIReady() {
-    console.log("URL is ");
-    console.log(course_URL);
-  player = new YT.Player('course_video', {
-    height: '390',
-    width: '640',
-    videoId: course_URL,
-    events: {
-      'onReady': get_video_time
+$(document).ready(function() {
+    function onYouTubeIframeAPIReady() {
+        console.log("URL is ");
+        console.log(course_URL);
+      player = new YT.Player('course_video', {
+        height: '390',
+        width: '640',
+        videoId: course_URL,
+        events: {
+          'onReady': get_video_time
+        }
+      });
     }
-  });
-}
+});
+
 
 // var myVar = setInterval(get_video_time, 5000);
 
