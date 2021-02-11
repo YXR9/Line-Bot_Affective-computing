@@ -77,21 +77,6 @@ def update_study_emotion():
     #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
-def ptt_hot():
-    target_url = 'http://disp.cc/b/PttHot'
-    print('Start parsing pttHot....')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for data in soup.select('#list div.row2 div span.listTitle'):
-        title = data.text
-        link = "http://disp.cc/b/" + data.find('a')['href']
-        if data.find('a')['href'] == "796-59l9":
-            break
-        content += '{}\n{}\n\n'.format(title, link)
-    return content
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
