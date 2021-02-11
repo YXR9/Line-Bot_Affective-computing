@@ -1,0 +1,113 @@
+{{
+  "type": "bubble",
+  "size": "kilo",
+  "header": {{
+    "type": "box",
+    "layout": "horizontal",
+    "backgroundColor": "#00bce4",
+    "contents": [
+      {{
+        "type": "text",
+        "text": "軟體工程",
+        "weight": "bold",
+        "size": "lg",
+        "gravity": "center",
+        "align": "center",
+        "color": "#FFFFFF"
+      }}
+    ]
+  }},
+  "body": {{
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "text",
+            "text": "課程",
+            "color": "#111111",
+            "weight": "bold",
+            "size": "sm",
+            "align": "start"
+          }}
+        ]
+      }},
+      {{
+        "type": "separator",
+        "color": "#cccccc",
+        "margin": "md"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "軟體工程概述",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }}
+        ],
+        "borderWidth": "light",
+        "borderColor": "#01BCE4",
+        "justifyContent": "center",
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "軟體程序概述",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }}
+        ],
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }}
+    ]
+  }},
+  "footer": {{
+    "type": "box",
+    "layout": "vertical",
+    "contents": []
+  }},
+  "styles": {{
+    "header": {{
+      "backgroundColor": "#6486E3"
+    }},
+    "body": {{
+      "backgroundColor": "#FEFEFE"
+    }},
+    "footer": {{
+      "separator": true
+    }}
+  }}
+}}
