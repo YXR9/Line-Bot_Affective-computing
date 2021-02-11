@@ -1,4 +1,8 @@
 const video = document.getElementById('video');
+const userID = {{ userID }};
+const m_id = {{ course.id }};
+console.log(userID);
+console.log(m_id);
 console.log(video);
 
 var tempemotion = 'non';
