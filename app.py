@@ -29,6 +29,8 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', None)
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
+course_uri = "https://project-emotion.herokuapp.com/index"
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -98,10 +100,16 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.texttt:", event.message.text)
     if event.message.text == "學習課程":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content))
-        return 0
+        f = open('ta/static/course_menu.json', 'r', encoding='utf8')
+        uri = course_uri + "?userID=" + userID
+        text = f.read().format(uri,uri)
+
+        true = True
+        content = eval(text)
+        line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程選單', contents=content))
+        # line_bot_api.reply_message(
+        #     event.reply_token,
+        #     TextSendMessage(text=content))
     elif event.message.text == "id":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
