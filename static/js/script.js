@@ -51,7 +51,7 @@ video.addEventListener('play', () => {
     // canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     // faceapi.draw.drawDetections(canvas, resizedDetections);
 
-  }, 1000);
+  }, 3000);
 });
 
 // 利用ajax去更新
