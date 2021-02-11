@@ -35,7 +35,7 @@ def insert_or_update(query, args=(), one=False):
 def get_course(m_id):
     try:
         m_id = int(m_id)
-    except ValueError:
+    except:
         print("Oops!  That was no valid number.  Try again...")
         return "None"
     datas = query_db('''select * from "learning_Material" where "id"=%s''',[m_id])
