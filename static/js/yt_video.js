@@ -30,6 +30,7 @@ function get_video_time() {
 
 function pauseVideo(){
     player.pauseVideo();
+    console.log("pause");
 }
 
 function stopVideo() {
