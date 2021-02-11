@@ -83,11 +83,17 @@ def update_study_emotion():
 
 def send_course_keyword(reply_token):
     f = open('./static/course_keyword.json', 'r', encoding='utf8')
-    add_json = []
-    add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
-        "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
-        "endColor": "#01BCE4"},"cornerRadius": "sm"})
-    text = f.read().format(add_json[0])
+    for i in range(2):
+        add_json = []
+        if i == 1:
+            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
+                "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "endColor": "#01BCE4"},"cornerRadius": "sm"},)
+        else:
+            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
+                "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "endColor": "#01BCE4"},"cornerRadius": "sm"})
+        text = f.read().format(add_json[0])
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
