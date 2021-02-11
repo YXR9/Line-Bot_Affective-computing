@@ -48,3 +48,7 @@ def update_emotion(m_id, u_id, video_time, study_emotions):
     insert_or_update('''insert into "learning_emotion" ("m_id", "u_id", "video_time", "study_emotion")
         values (%s, %s, %s, %s)''', [m_id, u_id, video_time, study_emotions])
     return 'OK'
+
+def get_keyword(m_id):
+    datas = query_db('''select * from "learning_material_keyword" where "m_id"=%s''',[m_id])
+    return datas

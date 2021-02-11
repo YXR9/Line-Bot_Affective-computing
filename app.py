@@ -16,7 +16,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-from connectDB import get_course, update_emotion
+from connectDB import get_course, update_emotion, get_keyword
 
 app = Flask(__name__)
 # config = configparser.ConfigParser()
@@ -81,13 +81,14 @@ def update_study_emotion():
     #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
     return result
 
-def send_course_keyword(reply_token):
+def send_course_keyword(reply_token, m_id):
+    keyword = get_keyword(m_id)
     f = open('./static/course_keyword.json', 'r', encoding='utf8')
     neww = ''
-    for i in range(2):
+    for i in range(len(keyword)):
         add_json = []
         new = ''
-        if i == 0:
+        if i != (len(keyword)-1):
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "keyword",
                 "data": "keyword_id"},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
@@ -126,8 +127,9 @@ def handle_message(event):
         #     TextSendMessage(text=content))
     elif event.message.text == "id":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
-    elif event.message.text == "keyword":
-        send_course_keyword(event.reply_token)
+    elif event.message.text[0:7] == "keyword":
+        m_id = event.message.text[7:]
+        send_course_keyword(event.reply_token, m_id)
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
     #     content = ptt_beauty()
     #     line_bot_api.reply_message(
