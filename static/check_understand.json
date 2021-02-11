@@ -1,0 +1,64 @@
+{{
+    "type": "bubble",
+    "size": "kilo",
+    "header": {{
+      "type": "box",
+      "layout": "horizontal",
+      "backgroundColor": "#00bce4",
+      "contents": [
+        {{
+          "type": "text",
+          "text": "是不是有不懂的地方呢？",
+          "weight": "bold",
+          "size": "lg",
+          "gravity": "center",
+          "align": "center",
+          "color": "#FFFFFF"
+        }}
+      ]
+    }},
+    "body": {{
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {{
+          "type": "button",
+          "action": {{
+            "type": "postback",
+            "label": "是",
+            "data": "YES_{}"
+        }},
+          "adjustMode": "shrink-to-fit",
+          "position": "relative",
+          "style": "secondary",
+          "gravity": "center"
+        }},
+        {{
+          "type": "button",
+          "action": {{
+            "type": "postback",
+            "label": "否",
+            "data": "NO_{}"
+          }},
+          "style": "secondary"
+        }}
+      ],
+      "spacing": "sm"
+    },
+    "footer": {{
+      "type": "box",
+      "layout": "vertical",
+      "contents": []
+    }},
+    "styles": {{
+      "header": {{
+        "backgroundColor": "#6486E3"
+      }},
+      "body": {{
+        "backgroundColor": "#FEFEFE"
+      }},
+      "footer": {{
+        "separator": true
+      }}
+    }}
+  }}

@@ -77,8 +77,8 @@ def update_study_emotion():
     emotion = request.form['study_emotion']
     result = 'OK'
     #result = update_emotion(m_id, userID, video_time, emotion)
-    # if emotion == "sad":
-    #     line_bot_api.push_message(userID, TextSendMessage(text="專心些..."))
+    if emotion == "sad":
+        send_notification(m_id, userID)
     return result
 
 def send_course_keyword(reply_token, m_id):
@@ -106,6 +106,13 @@ def send_course_keyword(reply_token, m_id):
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
+
+def send_notification(m_id,userID):
+    f = open('./static/restaurant_open_time.json', 'r', encoding='utf8')
+    text = f.read().format(m_id, m_id)
+    true = True
+    content = eval(text)
+    line_bot_api.push_message(userID, [TextSendMessage(text="專心些..."), FlexSendMessage(alt_text='對課程的理解', contents=content)])
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -138,7 +145,11 @@ def handle_postback(event):
         text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
         line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text=text))
-
+    elif text[0:4] == "YES_":
+        m_id = text[4:]
+        send_course_keyword(event.reply_token, m_id)
+    elif text[0:3] == "NO_":
+        m_id = text[3:]
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
