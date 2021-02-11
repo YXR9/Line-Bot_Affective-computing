@@ -122,9 +122,6 @@ def handle_message(event):
         true = True
         content = eval(text)
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='課程選單', contents=content))
-        # line_bot_api.reply_message(
-        #     event.reply_token,
-        #     TextSendMessage(text=content))
     elif event.message.text == "id":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
     elif event.message.text[0:7] == "keyword":
