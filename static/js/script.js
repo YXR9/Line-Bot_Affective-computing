@@ -56,11 +56,11 @@ video.addEventListener('play', () => {
 
 // 利用ajax去更新
 
-function update_study_emotion(m_id, uID, video_time, emotion) {
+function update_study_emotion(m_id, userID, video_time, emotion) {
   $.ajax({
     type: 'POST',
     url:".././update_study_emotion",
-    data:"m_id=" + m_id + "&userID="+ u_ID + "&video_time=" + video_time + "&study_emotion="+ emotion,
+    data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion,
     timeout: 360 * 1000,
     success: function(data) {
         console.log(data);
