@@ -10,10 +10,12 @@
 // }
 var player;
 function onYouTubeIframeAPIReady() {
+    console.log("URL is ");
+    console.log(course_URL);
   player = new YT.Player('course_video', {
     height: '390',
     width: '640',
-    videoId: '{{ course.courseURL }}',
+    videoId: course_URL,
     events: {
       'onReady': get_video_time
     }
