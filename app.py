@@ -87,42 +87,6 @@ def ptt_hot():
         content += '{}\n{}\n\n'.format(title, link)
     return content
 
-
-def movie():
-    target_url = 'http://www.atmovies.com.tw/movie/next/0/'
-    print('Start parsing movie ...')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for index, data in enumerate(soup.select('ul.filmNextListAll a')):
-        if index == 20:
-            return content
-        title = data.text.replace('\t', '').replace('\r', '')
-        link = "http://www.atmovies.com.tw" + data['href']
-        content += '{}\n{}\n'.format(title, link)
-    return content
-
-
-def technews():
-    target_url = 'https://technews.tw/'
-    print('Start parsing movie ...')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-
-    for index, data in enumerate(soup.select('article div h1.entry-title a')):
-        if index == 12:
-            return content
-        title = data.text
-        link = data['href']
-        content += '{}\n{}\n\n'.format(title, link)
-    return content
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
@@ -130,15 +94,13 @@ def handle_message(event):
     print("event.userID:", userID)
     print("event.reply_token:", event.reply_token)
     print("event.message.texttt:", event.message.text)
-    content = event.message.text
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=content))
-    # if event.message.text == "學習課程":
-    #     line_bot_api.reply_message(
-    #         event.reply_token,
-    #         TextSendMessage(text=content))
-    #     return 0
-    # elif event.message.text = "id":
-    #     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
+    if event.message.text == "學習課程":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    elif event.message.text = "id":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=userID))
     # if event.message.text == "PTT 表特版 近期大於 10 推的文章":
     #     content = ptt_beauty()
     #     line_bot_api.reply_message(
