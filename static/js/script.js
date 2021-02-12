@@ -67,6 +67,7 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=0",
       timeout: 360 * 1000,
       success: function(data) {
+          console.log("return data is ");
           console.log(data);
       },
       error: function(jqXHR, textStatus, errorThrown) {
@@ -80,7 +81,8 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=1",
       timeout: 360 * 1000,
       success: function(data) {
-          console.log(data);
+        console.log("return data is ");
+        console.log(data);
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }

@@ -81,7 +81,7 @@ def update_study_emotion():
     #result = update_emotion(m_id, userID, video_time, emotion)
     if emotion == "sad" and flag == 0:
         send_notification(m_id, userID)
-    return result
+    return flag
 
 def send_course_keyword(reply_token, m_id):
     keyword = get_keyword(m_id)
