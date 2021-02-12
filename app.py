@@ -79,7 +79,7 @@ def update_study_emotion():
     result = 'OK'
     print("flag is ", flag)
     #result = update_emotion(m_id, userID, video_time, emotion)
-    if emotion == "sad" and flag == 0:
+    if emotion == "sad" and flag == '0':
         send_notification(m_id, userID)
     return flag
 
