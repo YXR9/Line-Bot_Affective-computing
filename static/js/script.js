@@ -58,13 +58,6 @@ video.addEventListener('play', () => {
 // 利用ajax去更新
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
-  if(emotion == "sad" && flag == 0){
-    pauseVideo();
-    flag = 1;
-  }else{
-    console.log("noooo~");
-  }
-  console.log(flag);
   $.ajax({
     type: 'POST',
     url:".././update_study_emotion",
@@ -76,5 +69,13 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
     error: function(jqXHR, textStatus, errorThrown) {
     }
   });
+  if(emotion == "sad" && flag == 0){
+    pauseVideo();
+    flag = 1;
+  }else{
+    console.log("noooo~");
+  }
+  console.log(flag);
+  
 }
 
