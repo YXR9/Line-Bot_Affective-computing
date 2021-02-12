@@ -1,4 +1,5 @@
 const video = document.getElementById('video');
+flag = 0
 console.log(video);
 
 var tempemotion = 'non';
@@ -57,8 +58,9 @@ video.addEventListener('play', () => {
 // 利用ajax去更新
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
-  if(emotion == "sad"){
+  if(emotion == "sad" && flag == 0){
     pauseVideo();
+    flag = 1
     console.log("ssaasddd");
   }else{
     console.log("noooo~");
