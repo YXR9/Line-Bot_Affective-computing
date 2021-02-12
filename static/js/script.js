@@ -64,6 +64,7 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
   }else{
     console.log("noooo~");
   }
+  console.log(flag);
   $.ajax({
     type: 'POST',
     url:".././update_study_emotion",
