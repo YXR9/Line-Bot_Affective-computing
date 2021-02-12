@@ -77,6 +77,7 @@ def update_study_emotion():
     emotion = request.form['study_emotion']
     flag = request.form['flag']
     result = 'OK'
+    print("flag is ", flag)
     #result = update_emotion(m_id, userID, video_time, emotion)
     if emotion == "sad" and flag == 0:
         send_notification(m_id, userID)
