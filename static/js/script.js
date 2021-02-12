@@ -58,21 +58,33 @@ video.addEventListener('play', () => {
 // 利用ajax去更新
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
-  $.ajax({
-    type: 'POST',
-    url:".././update_study_emotion",
-    data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=" + flag,
-    timeout: 360 * 1000,
-    success: function(data) {
-        console.log(data);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-    }
-  });
+  
   if(emotion == "sad" && flag == 0){
     pauseVideo();
+    $.ajax({
+      type: 'POST',
+      url:".././update_study_emotion",
+      data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=0",
+      timeout: 360 * 1000,
+      success: function(data) {
+          console.log(data);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+      }
+    });
     flag = 1;
   }else{
+    $.ajax({
+      type: 'POST',
+      url:".././update_study_emotion",
+      data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=1",
+      timeout: 360 * 1000,
+      success: function(data) {
+          console.log(data);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+      }
+    });
     console.log("noooo~");
   }
   console.log(flag);
