@@ -61,14 +61,13 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
   if(emotion == "sad" && flag == 0){
     pauseVideo();
     flag = 1;
-    console.log("ssaasddd");
   }else{
     console.log("noooo~");
   }
   $.ajax({
     type: 'POST',
     url:".././update_study_emotion",
-    data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion,
+    data:"m_id=" + m_id + "&userID="+ userID + "&video_time=" + video_time + "&study_emotion="+ emotion + "&flag=" + flag,
     timeout: 360 * 1000,
     success: function(data) {
         console.log(data);
