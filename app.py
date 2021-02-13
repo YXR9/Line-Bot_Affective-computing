@@ -161,7 +161,8 @@ def handle_postback(event):
     elif text[0:3] == "NO_":
         m_id = text[3:]
     elif text == "understand_all_keyword":
-        resume_video()
+        e_id = get_newest_emotion_id(userID)
+        update_video_status(e_id, True)
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):

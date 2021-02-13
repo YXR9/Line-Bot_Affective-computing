@@ -99,8 +99,6 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
 }
 
 function check_video_status(){
-  console.log("e_id is");
-  console.log(e_id);
   $.ajax({
     type: 'POST',
     url:".././check_study_video_status",
@@ -108,11 +106,10 @@ function check_video_status(){
     timeout: 360 * 1000,
     success: function(data) {
       console.log(data);
-      if(data == "true"){
+      if(data == "True"){
         console.log("restart ...");
+        clearInterval(v_status);
       }
-      clearInterval(v_status);
-
     },
     error: function(jqXHR, textStatus, errorThrown) {
     }
