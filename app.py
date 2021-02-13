@@ -16,7 +16,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-from connectDB import get_course, update_emotion, get_keyword, get_keyword_description
+from connectDB import *
 
 app = Flask(__name__)
 # config = configparser.ConfigParser()
@@ -78,8 +78,10 @@ def update_study_emotion():
     flag = request.form['flag']
     result = 'OK'
     print("flag is ", flag)
-    #result = update_emotion(m_id, userID, video_time, emotion)
+    result = update_emotion(m_id, userID, video_time, emotion)
     if emotion == "sad" and flag == '0':
+        emotion_id = get_newest_emotion_id
+        update_video_state(emotion_id)
         send_notification(m_id, userID)
     return flag
 
@@ -152,6 +154,8 @@ def handle_postback(event):
         send_course_keyword(event.reply_token, m_id)
     elif text[0:3] == "NO_":
         m_id = text[3:]
+    elif text == "understand_all_keyword":
+        resume_video()
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):

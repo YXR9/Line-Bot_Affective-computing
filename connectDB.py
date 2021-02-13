@@ -56,3 +56,10 @@ def get_keyword(m_id):
 def get_keyword_description(id):
     datas = query_db('''select * from "learning_material_keyword" where "id"=%s''',[id])
     return datas[0]
+
+def get_newest_emotion_id(userID):
+    datas = query_db('''select * from "learning_material" where "userID"=%s order by "id" desc limit 1''')
+    return datas[0]["id"]
+
+def update_video_state(id):
+    insert_or_update('''update "learning_emotion" set "resume"=true where "id"=%s''', [id])
