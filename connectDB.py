@@ -58,7 +58,7 @@ def get_keyword_description(id):
     return datas[0]
 
 def get_newest_emotion_id(userID):
-    datas = query_db('''select * from "learning_emotion" where "u_id"=%s and "study_emotion"="sad" order by "id" desc limit 1''')
+    datas = query_db('''select * from "learning_emotion" where "u_id"=%s and "study_emotion"="sad" order by "id" desc limit 1''', [userID])
     return datas[0]["id"]
 
 def update_video_state(id):
