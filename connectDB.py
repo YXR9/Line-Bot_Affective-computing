@@ -61,5 +61,5 @@ def get_newest_emotion_id(userID):
     datas = query_db('''select * from "learning_emotion" where "u_id"=%s and "study_emotion"='sad' order by "id" desc limit 1''', [userID])
     return datas[0]["id"]
 
-def update_video_state(id):
-    insert_or_update('''update "learning_emotion" set "resume"=true where "id"=%s''', [id])
+def update_video_state(id, resume):
+    insert_or_update('''update "learning_emotion" set "resume"=%s where "id"=%s''', [resume, id])
