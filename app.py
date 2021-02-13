@@ -81,9 +81,15 @@ def update_study_emotion():
     result = update_emotion(m_id, userID, video_time, emotion)
     if emotion == "sad" and flag == '0':
         emotion_id = get_newest_emotion_id(userID)
-        update_video_state(emotion_id, False)
+        update_video_status(emotion_id, False)
         send_notification(m_id, userID)
-    return flag
+    return emotion_id
+
+@app.route("/check_study_video_status", methods=['POST'])
+def check_study_video_status():
+    e_id = request.form["e_id"]
+    video_status = check_video_status(e_id)
+    return video_status
 
 def send_course_keyword(reply_token, m_id):
     keyword = get_keyword(m_id)

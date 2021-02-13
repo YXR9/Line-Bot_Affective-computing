@@ -1,5 +1,6 @@
 const video = document.getElementById('video');
-flag = 0
+flag = 0;
+e_id = 0;
 console.log(video);
 
 var tempemotion = 'non';
@@ -69,10 +70,13 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       success: function(data) {
           console.log("return data is ");
           console.log(data);
+          e_id = data;
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }
     });
+    var v_status = setInterval(check_video_status, 1000);
+
     flag = 1;
   }else if(flag == 0){
     $.ajax({
@@ -83,12 +87,31 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       success: function(data) {
         console.log("return data is ");
         console.log(data);
+        e_id = data;
+
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }
     });
   }
-  console.log(flag);
+  console.log(e_id);
   
 }
 
+function check_video_status(){
+  console.log("e_id is");
+  console.log(e_id);
+  $.ajax({
+    type: 'POST',
+    url:".././check_study_video_status",
+    data:"e_id=" + e_id ,
+    timeout: 360 * 1000,
+    success: function(data) {
+      if(data == "true"){
+        console.log("restart ...");
+      }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+    }
+  });
+}
