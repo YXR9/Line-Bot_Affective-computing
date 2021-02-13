@@ -43,7 +43,18 @@
     "footer": {{
       "type": "box",
       "layout": "vertical",
-      "contents": []
+      "contents": [
+        {{
+          "type": "button",
+          "action": {{
+            "type": "postback",
+            "label": "我都已經懂了",
+            "data": "understand_all_keyword",
+            "displayText": "繼續看影片"
+          }},
+          "style": "primary"
+        }}
+      ]
     }},
     "styles": {{
       "header": {{
