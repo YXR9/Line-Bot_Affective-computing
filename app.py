@@ -89,7 +89,7 @@ def update_study_emotion():
 def check_study_video_status():
     e_id = request.form["e_id"]
     video_status = check_video_status(e_id)
-    return video_status
+    return str(video_status)
 
 def send_course_keyword(reply_token, m_id):
     keyword = get_keyword(m_id)
