@@ -71,11 +71,11 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
           console.log("return data is ");
           console.log(data);
           e_id = data;
+          var v_status = setInterval(check_video_status, 1000);
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }
     });
-    var v_status = setInterval(check_video_status, 1000);
 
     flag = 1;
   }else if(flag == 0){
