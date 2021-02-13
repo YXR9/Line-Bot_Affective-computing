@@ -87,7 +87,6 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       error: function(jqXHR, textStatus, errorThrown) {
       }
     });
-    console.log("noooo~");
   }
   console.log(flag);
   
