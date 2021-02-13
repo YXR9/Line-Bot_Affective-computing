@@ -83,13 +83,13 @@ def update_study_emotion():
         emotion_id = get_newest_emotion_id(userID)
         update_video_status(emotion_id, False)
         send_notification(m_id, userID)
-    return emotion_id
+    return str(emotion_id)
 
 @app.route("/check_study_video_status", methods=['POST'])
 def check_study_video_status():
     e_id = request.form["e_id"]
     video_status = check_video_status(e_id)
-    return str(video_status)
+    return video_status
 
 def send_course_keyword(reply_token, m_id):
     keyword = get_keyword(m_id)
