@@ -71,7 +71,7 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
           console.log("return data is ");
           console.log(data);
           e_id = data;
-          var v_status = setInterval(check_video_status, 1000);
+          v_status = setInterval(check_video_status, 1000);
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }
@@ -107,9 +107,12 @@ function check_video_status(){
     data:"e_id=" + e_id ,
     timeout: 360 * 1000,
     success: function(data) {
+      console.log(data);
       if(data == "true"){
         console.log("restart ...");
       }
+      clearInterval(v_status);
+
     },
     error: function(jqXHR, textStatus, errorThrown) {
     }
