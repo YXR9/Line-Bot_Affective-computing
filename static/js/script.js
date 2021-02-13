@@ -74,7 +74,7 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
       }
     });
     flag = 1;
-  }else{
+  }else if(flag == 0){
     $.ajax({
       type: 'POST',
       url:".././update_study_emotion",
