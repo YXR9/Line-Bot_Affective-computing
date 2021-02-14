@@ -246,7 +246,7 @@ def handle_postback(event):
         keyword_id = info[0]
         m_id = info[1]
         keyword_result = get_keyword_description(keyword_id)
-        text = keyword_result["keyword"] + ":\n" + keyword_result["description"] + "\n" + m_id
+        text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
         resend_course_keyword(event.reply_token, m_id, text)
     elif text[0:4] == "YES_":
         m_id = text[4:]
