@@ -93,6 +93,7 @@ def check_study_video_status():
 
 def send_course_keyword(reply_token, m_id):
     keyword = get_keyword(m_id)
+    course = get_course(m_id)
     f = open('./static/course_keyword.json', 'r', encoding='utf8')
     neww = ''
     for i in range(len(keyword)):
@@ -112,7 +113,7 @@ def send_course_keyword(reply_token, m_id):
             print(add_json[0])
         neww = str(neww) + str(new_add)
     print("neww is ", neww)
-    text = f.read().format(neww)
+    text = f.read().format(course["courseName"],neww)
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
