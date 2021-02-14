@@ -120,6 +120,33 @@ def send_course_keyword(reply_token, m_id):
     content = eval(text)
     line_bot_api.reply_message(reply_token, FlexSendMessage(alt_text='課程keyword', contents=content))
 
+def question_send_course_keyword(reply_token, m_id):
+    keyword = get_keyword(m_id)
+    course = get_course(m_id)
+    f = open('./static/course_keyword.json', 'r', encoding='utf8')
+    neww = ''
+    for i in range(len(keyword)):
+        add_json = []
+        new = ''
+        if i != (len(keyword)-1):
+            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"]),
+                "data": "keyword_id_{}".format(keyword[i]["id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "endColor": "#01BCE4"},"cornerRadius": "sm"})
+            new_add = str(add_json[0]) + ","
+            print(new_add)
+        else:
+            add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"]),
+                "data": "keyword_id_{}".format(keyword[i]["id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "endColor": "#01BCE4"},"cornerRadius": "sm"})
+            new_add = str(add_json[0])
+            print(add_json[0])
+        neww = str(neww) + str(new_add)
+    print("neww is ", neww)
+    text = f.read().format(course["courseName"],neww)
+    true = True
+    content = eval(text)
+    line_bot_api.reply_message(reply_token, [TextSendMessage(text="答錯囉，請看看是否還有不懂的地方！"),FlexSendMessage(alt_text='課程keyword', contents=content)])
+
 def send_notification(m_id,userID):
     f = open('./static/check_understand.json', 'r', encoding='utf8')
     text = f.read().format(m_id, m_id)
@@ -184,9 +211,9 @@ def handle_postback(event):
         e_id = get_newest_emotion_id(userID)
         if select == str(question["answer"]):
             update_video_status(e_id, True)
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了"))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了，繼續看影片吧！"))
         else:
-            send_course_keyword(event.reply_token, m_id)
+            question_send_course_keyword(event.reply_token, m_id)
             
 
 @handler.add(MessageEvent, message=StickerMessage)
