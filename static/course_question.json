@@ -69,7 +69,7 @@
               "action": {{
                 "type": "postback",
                 "label": "A",
-                "data": "answer_1"
+                "data": "answer{}_1"
               }},
               "color": "#FC5731",
               "style": "primary"
@@ -79,7 +79,7 @@
               "action": {{
                 "type": "postback",
                 "label": "B",
-                "data": "answer_2"
+                "data": "answer{}_2"
               }},
               "color": "#FC5731",
               "style": "primary"
@@ -100,7 +100,7 @@
               "action": {{
                 "type": "postback",
                 "label": "C",
-                "data": "answer_3"
+                "data": "answer{}_3"
               }},
               "color": "#FC5731",
               "style": "primary"
@@ -110,7 +110,7 @@
               "action": {{
                 "type": "postback",
                 "label": "D",
-                "data": "answer_4"
+                "data": "answer{}_4"
               }},
               "color": "#FC5731",
               "style": "primary"

@@ -128,7 +128,7 @@ def send_notification(m_id,userID):
 def send_course_question(reply_token, m_id, userID):
     question = get_course_question(m_id)
     f = open('./static/course_question.json', 'r', encoding='utf8')
-    text = f.read().format(question["quiz"], question["options1"], question["options2"], question["options3"], question["options4"])
+    text = f.read().format(question["quiz"], question["options1"], question["options2"], question["options3"], question["options4"], m_id, m_id, m_id, m_id)
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, [TextSendMessage(text="請回答以下題目"), FlexSendMessage(alt_text='題目', contents=content)])
@@ -173,6 +173,18 @@ def handle_postback(event):
     elif text == "understand_all_keyword":
         e_id = get_newest_emotion_id(userID)
         update_video_status(e_id, True)
+    elif text[0:6] == "answer":
+        temp = text[6:]
+        temp = temp.split("_")
+        m_id = temp[0]
+        select = temp[1]
+        print("m_id is ", m_id)
+        print("select is ", select)
+        question = get_course_question(m_id)
+        if select == str(question["answer"])
+            line_bot_api.reply_token(event.reply_token, TextSendMessage(text="答對了"))
+        else:
+            line_bot_api.reply_token(event.reply_token, TextSendMessage(text="答錯囉~"))
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
