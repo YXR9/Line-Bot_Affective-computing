@@ -181,7 +181,7 @@ def handle_postback(event):
         print("m_id is ", m_id)
         print("select is ", select)
         question = get_course_question(m_id)
-        if select == str(question["answer"])
+        if select == str(question["answer"]):
             line_bot_api.reply_token(event.reply_token, TextSendMessage(text="答對了"))
         else:
             line_bot_api.reply_token(event.reply_token, TextSendMessage(text="答錯囉~"))
