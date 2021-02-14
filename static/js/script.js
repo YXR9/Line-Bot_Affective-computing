@@ -71,7 +71,7 @@ function update_study_emotion(m_id, userID, video_time, emotion) {
           console.log("return data is ");
           console.log(data);
           e_id = data;
-          v_status = setInterval(check_video_status, 1000);
+          v_status = setInterval(check_video_status, 3000);
       },
       error: function(jqXHR, textStatus, errorThrown) {
       }
