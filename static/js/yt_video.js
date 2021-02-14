@@ -40,3 +40,7 @@ function pauseVideo(){
 function stopVideo() {
     player.stopVideo();
 }
+
+function playVideo(){
+    player.playVideo();
+}

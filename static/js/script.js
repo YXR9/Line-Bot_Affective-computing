@@ -107,6 +107,8 @@ function check_video_status(){
     success: function(data) {
       console.log(data);
       if(data == "True"){
+        playVideo();
+        flag = 0;
         console.log("restart ...");
         clearInterval(v_status);
       }
