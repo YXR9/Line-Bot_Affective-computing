@@ -125,6 +125,14 @@ def send_notification(m_id,userID):
     content = eval(text)
     line_bot_api.push_message(userID, [TextSendMessage(text="專心些..."), FlexSendMessage(alt_text='對課程的理解', contents=content)])
 
+def send_course_question(reply_token, m_id, userID):
+    question = get_course_question(m_id)
+    f = open('./static/check_understand.json', 'r', encoding='utf8')
+    text = f.read().format(question["quiz"], question["option1"], question["option2"], question["option3"], question["option4"])
+    true = True
+    content = eval(text)
+    line_bot_api.reply_message(reply_token, [TextSendMessage(text="請回答以下題目"), FlexSendMessage(alt_text='題目', contents=content)])
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     userID = event.source.user_id 
@@ -161,6 +169,7 @@ def handle_postback(event):
         send_course_keyword(event.reply_token, m_id)
     elif text[0:3] == "NO_":
         m_id = text[3:]
+        send_course_question(event.reply_token, 2, userID)
     elif text == "understand_all_keyword":
         e_id = get_newest_emotion_id(userID)
         update_video_status(e_id, True)

@@ -67,3 +67,7 @@ def update_video_status(id, resume):
 def check_video_status(id):
     data = query_db('''select * from "learning_emotion" where "id"=%s''', [id])
     return data[0]["resume"]
+
+def get_course_question(m_id):
+    data = query_db('''select * from "material_question" where "m_id"=%s''', [m_id])
+    return data[0]

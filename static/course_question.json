@@ -1,0 +1,137 @@
+{{
+    "type": "bubble",
+    "size": "kilo",
+    "header": {{
+      "type": "box",
+      "layout": "horizontal",
+      "backgroundColor": "#00bce4",
+      "contents": [
+        {{
+          "type": "text",
+          "text": "小考題目",
+          "weight": "bold",
+          "size": "lg",
+          "gravity": "center",
+          "align": "center",
+          "color": "#FFFFFF"
+        }}
+      ]
+    }},
+    "body": {{
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {{
+          "type": "text",
+          "contents": [],
+          "align": "start",
+          "margin": "xs",
+          "offsetBottom": "sm",
+          "text": "{}",
+          "wrap": true,
+          "size": "xl"
+        }},
+        {{
+          "type": "text",
+          "text": "(A){}",
+          "align": "start",
+          "wrap": true
+        }},
+        {{
+          "type": "text",
+          "text": "(B){}",
+          "align": "start",
+          "wrap": true
+        }},
+        {{
+          "type": "text",
+          "text": "(C){}",
+          "align": "start",
+          "wrap": true
+        }},
+        {{
+          "type": "text",
+          "text": "(D){}",
+          "align": "start",
+          "wrap": true
+        }},
+        {{
+          "type": "separator",
+          "margin": "md"
+        }},
+        {{
+          "margin": "md",
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "A",
+                "data": "answer_1"
+              }},
+              "color": "#FC5731",
+              "style": "primary"
+            }},
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "B",
+                "data": "answer_2"
+              }},
+              "color": "#FC5731",
+              "style": "primary"
+            }}
+          ],
+          "borderWidth": "light",
+          "justifyContent": "center",
+          "cornerRadius": "sm",
+          "spacing": "md"
+        }},
+        {{
+          "margin": "md",
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "C",
+                "data": "answer_3"
+              }},
+              "color": "#FC5731",
+              "style": "primary"
+            }},
+            {{
+              "type": "button",
+              "action": {{
+                "type": "postback",
+                "label": "D",
+                "data": "answer_4"
+              }},
+              "color": "#FC5731",
+              "style": "primary"
+            }}
+          ],
+          "borderWidth": "light",
+          "justifyContent": "center",
+          "cornerRadius": "sm",
+          "spacing": "md"
+        }}
+      ]
+    }},
+    "styles": {{
+      "header": {{
+        "backgroundColor": "#6486E3"
+      }},
+      "body": {{
+        "backgroundColor": "#FEFEFE"
+      }},
+      "footer": {{
+        "separator": true
+      }}
+    }}
+  }}
