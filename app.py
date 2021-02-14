@@ -178,8 +178,6 @@ def handle_postback(event):
         temp = temp.split("_")
         m_id = temp[0]
         select = temp[1]
-        print("m_id is ", m_id)
-        print("select is ", select)
         question = get_course_question(m_id)
         if select == str(question["answer"]):
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了"))
