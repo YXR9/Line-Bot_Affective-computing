@@ -184,7 +184,8 @@ def handle_postback(event):
             update_video_status(e_id, True)
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了"))
         else:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答錯囉~"))
+            send_course_keyword(event.reply_token, m_id)
+            
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
