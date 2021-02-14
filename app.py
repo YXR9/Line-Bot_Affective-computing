@@ -141,13 +141,13 @@ def question_send_course_keyword(reply_token, m_id):
         new = ''
         if i != (len(keyword)-1):
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"]),
-                "data": "keyword_id_{}".format(keyword[i]["id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "data": "keyword_id_{}_{}".format(keyword[i]["id"], keyword[i]["m_id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
             new_add = str(add_json[0]) + ","
             print(new_add)
         else:
             add_json.append({"margin": "md","type": "box","layout": "horizontal","contents": [{"type": "button","action": {"type": "postback","label": "{}".format(keyword[i]["keyword"]),
-                "data": "keyword_id_{}".format(keyword[i]["id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
+                "data": "keyword_id_{}_{}".format(keyword[i]["id"], keyword[i]["m_id"])},"color": "#FFFFFF","style": "link"}],"background": {"type": "linearGradient","angle": "0deg","startColor": "#01BCE4",
                 "endColor": "#01BCE4"},"cornerRadius": "sm"})
             new_add = str(add_json[0])
             print(add_json[0])
@@ -199,9 +199,12 @@ def handle_postback(event):
     userID = event.source.user_id
     text = event.postback.data
     if text[0:11] == 'keyword_id_':
-        keyword_id = text[11:]
+        info = text[11:]
+        info = info.split("_")
+        keyword_id = info[0]
+        m_id = info[1]
         keyword_result = get_keyword_description(keyword_id)
-        text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
+        text = keyword_result["keyword"] + ":\n" + keyword_result["description"] + "\n" + m_id
         line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text=text))
     elif text[0:4] == "YES_":
