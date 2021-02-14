@@ -177,7 +177,7 @@ def handle_postback(event):
         temp = text[6:]
         temp = temp.split("_")
         m_id = temp[0]
-        select = temp[1]s
+        select = temp[1]
         question = get_course_question(m_id)
         e_id = get_newest_emotion_id(userID)
         if select == str(question["answer"]):
