@@ -33,25 +33,25 @@
         }},
         {{
           "type": "text",
-          "text": "(A){}",
+          "text": "{}",
           "align": "start",
           "wrap": true
         }},
         {{
           "type": "text",
-          "text": "(B){}",
+          "text": "{}",
           "align": "start",
           "wrap": true
         }},
         {{
           "type": "text",
-          "text": "(C){}",
+          "text": "{}",
           "align": "start",
           "wrap": true
         }},
         {{
           "type": "text",
-          "text": "(D){}",
+          "text": "{}",
           "align": "start",
           "wrap": true
         }},
