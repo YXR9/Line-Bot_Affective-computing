@@ -128,7 +128,7 @@ def send_notification(m_id,userID):
 def send_course_question(reply_token, m_id, userID):
     question = get_course_question(m_id)
     f = open('./static/check_understand.json', 'r', encoding='utf8')
-    text = f.read().format(question["quiz"], question["option1"], question["option2"], question["option3"], question["option4"])
+    text = f.read().format(question["quiz"], question["options1"], question["options2"], question["options3"], question["options4"])
     true = True
     content = eval(text)
     line_bot_api.reply_message(reply_token, [TextSendMessage(text="請回答以下題目"), FlexSendMessage(alt_text='題目', contents=content)])
