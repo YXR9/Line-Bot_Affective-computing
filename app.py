@@ -177,9 +177,11 @@ def handle_postback(event):
         temp = text[6:]
         temp = temp.split("_")
         m_id = temp[0]
-        select = temp[1]
+        select = temp[1]s
         question = get_course_question(m_id)
+        e_id = get_newest_emotion_id(userID)
         if select == str(question["answer"]):
+            update_video_status(e_id, True)
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了"))
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答錯囉~"))
