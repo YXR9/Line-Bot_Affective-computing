@@ -83,6 +83,7 @@ def update_study_emotion():
         emotion_id = get_newest_emotion_id(userID)
         update_video_status(emotion_id, False)
         send_notification(m_id, userID)
+        print("update emotion", emotion)
         return str(emotion_id)
     else:
         return "0"
