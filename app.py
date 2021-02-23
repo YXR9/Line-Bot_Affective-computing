@@ -241,7 +241,7 @@ def handle_postback(event):
     userID = event.source.user_id
     text = event.postback.data
     stu_video_status = get_student_video_status(userID)
-    if stu_video_status != None and stu_video_status == True:
+    if stu_video_status != None and stu_video_status == False:
         if text[0:11] == 'keyword_id_':
             info = text[11:]
             info = info.split("_")
