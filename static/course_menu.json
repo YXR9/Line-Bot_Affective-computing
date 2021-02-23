@@ -82,7 +82,108 @@
             }},
             "color": "#FFFFFF",
             "style": "link"
-          }}
+          }},
+          
+        ],
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "瀑布式模型",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }},
+          
+        ],
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "增量式開發",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }},
+          
+        ],
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "再利用導向式軟體工程",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }},
+          
+        ],
+        "background": {{
+          "type": "linearGradient",
+          "angle": "0deg",
+          "startColor": "#01BCE4",
+          "endColor": "#01BCE4"
+        }},
+        "cornerRadius": "sm"
+      }},
+      {{
+        "margin": "md",
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {{
+            "type": "button",
+            "action": {{
+              "type": "uri",
+              "label": "軟體規格制訂概述",
+              "uri": "{}"
+            }},
+            "color": "#FFFFFF",
+            "style": "link"
+          }},
+          
         ],
         "background": {{
           "type": "linearGradient",
@@ -92,6 +193,7 @@
         }},
         "cornerRadius": "sm"
       }}
+      
     ]
   }},
   "footer": {{

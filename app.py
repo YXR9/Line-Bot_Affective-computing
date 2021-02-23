@@ -225,7 +225,7 @@ def handle_message(event):
     if event.message.text == "學習課程":
         f = open('./static/course_menu.json', 'r', encoding='utf8')
         uri = course_uri + "?userID=" + userID + "&m_id="
-        text = f.read().format(uri + "1",uri + "2")
+        text = f.read().format(uri + "1",uri + "2", uri + "3", uri + "4", uri + "5", uri + "6")
 
         true = True
         content = eval(text)
