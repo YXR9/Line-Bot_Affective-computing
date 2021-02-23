@@ -240,35 +240,39 @@ def handle_message(event):
 def handle_postback(event):
     userID = event.source.user_id
     text = event.postback.data
-    if text[0:11] == 'keyword_id_':
-        info = text[11:]
-        info = info.split("_")
-        keyword_id = info[0]
-        m_id = info[1]
-        keyword_result = get_keyword_description(keyword_id)
-        text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
-        resend_course_keyword(event.reply_token, m_id, text)
-    elif text[0:4] == "YES_":
-        m_id = text[4:]
-        send_course_keyword(event.reply_token, m_id)
-    elif text[0:3] == "NO_":
-        m_id = text[3:]
-        send_course_question(event.reply_token, m_id, userID)
-    elif text == "understand_all_keyword":
-        e_id = get_newest_emotion_id(userID)
-        update_video_status(e_id, True)
-    elif text[0:6] == "answer":
-        temp = text[6:]
-        temp = temp.split("_")
-        m_id = temp[0]
-        select = temp[1]
-        question = get_course_question(m_id)
-        e_id = get_newest_emotion_id(userID)
-        if select == str(question["answer"]):
+    stu_video_status = get_student_video_status(userID)
+    if stu_video_status != None and stu_video_status == True:
+        if text[0:11] == 'keyword_id_':
+            info = text[11:]
+            info = info.split("_")
+            keyword_id = info[0]
+            m_id = info[1]
+            keyword_result = get_keyword_description(keyword_id)
+            text = keyword_result["keyword"] + ":\n" + keyword_result["description"]
+            resend_course_keyword(event.reply_token, m_id, text)
+        elif text[0:4] == "YES_":
+            m_id = text[4:]
+            send_course_keyword(event.reply_token, m_id)
+        elif text[0:3] == "NO_":
+            m_id = text[3:]
+            send_course_question(event.reply_token, m_id, userID)
+        elif text == "understand_all_keyword":
+            e_id = get_newest_emotion_id(userID)
             update_video_status(e_id, True)
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了，繼續看影片吧！"))
-        else:
-            question_send_course_keyword(event.reply_token, m_id)
+        elif text[0:6] == "answer":
+            temp = text[6:]
+            temp = temp.split("_")
+            m_id = temp[0]
+            select = temp[1]
+            question = get_course_question(m_id)
+            e_id = get_newest_emotion_id(userID)
+            if select == str(question["answer"]):
+                update_video_status(e_id, True)
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text="答對了，繼續看影片吧！"))
+            else:
+                question_send_course_keyword(event.reply_token, m_id)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="同學~請不要玩機器人，專心上課🤨"))
             
 
 @handler.add(MessageEvent, message=StickerMessage)

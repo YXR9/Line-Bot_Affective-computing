@@ -71,3 +71,10 @@ def check_video_status(id):
 def get_course_question(m_id):
     data = query_db('''select * from "material_question" where "m_id"=%s''', [m_id])
     return data[0]
+
+def get_student_video_status(userID):
+    data = query_db('''select * from "learning_emotion" where "u_id"=%s order by "id" desc limit 1''', [userID])
+    if data:
+        return data[0]["resume"]
+    else:
+        return None
