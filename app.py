@@ -253,7 +253,7 @@ def handle_postback(event):
         send_course_keyword(event.reply_token, m_id)
     elif text[0:3] == "NO_":
         m_id = text[3:]
-        send_course_question(event.reply_token, 2, userID)
+        send_course_question(event.reply_token, m_id, userID)
     elif text == "understand_all_keyword":
         e_id = get_newest_emotion_id(userID)
         update_video_status(e_id, True)
