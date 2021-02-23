@@ -78,6 +78,7 @@ def update_study_emotion():
     flag = request.form['flag']
     result = 'OK'
     print("flag is ", flag)
+    print("emotion is", emotion)
     result = update_emotion(m_id, userID, video_time, emotion)
     if (emotion == "sad" or emotion == "disgusted" or emotion == "angry") and flag == '0':
         emotion_id = get_newest_emotion_id(userID)
