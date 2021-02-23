@@ -60,7 +60,7 @@ video.addEventListener('play', () => {
 
 function update_study_emotion(m_id, userID, video_time, emotion) {
   
-  if(emotion == "sad" && flag == 0){
+  if((emotion == "sad" || emotion == "disgusted" || emotion == "angry") && flag == 0){
     pauseVideo();
     $.ajax({
       type: 'POST',
@@ -109,7 +109,6 @@ function check_video_status(){
       if(data == "True"){
         playVideo();
         flag = 0;
-        console.log("restart ...");
         clearInterval(v_status);
       }
     },
